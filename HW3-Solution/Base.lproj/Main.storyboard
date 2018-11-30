@@ -97,6 +97,24 @@
                                     <action selector="modePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQ7-1s-Vpg"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vRF-5o-u5m">
+                                <rect key="frame" x="8" y="321" width="138" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ne-8w-p7E" customClass="ConversionCalcLabel" customModule="HW3_Solution" customModuleProvider="target">
+                                <rect key="frame" x="154" y="321" width="205" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBC-yd-z6A" customClass="ConversionCalcLabel" customModule="HW3_Solution" customModuleProvider="target">
+                                <rect key="frame" x="154" y="433" width="205" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -130,7 +148,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ImageIcon" destination="vRF-5o-u5m" id="l6c-BH-ahI"/>
+                        <outlet property="Temp" destination="0ne-8w-p7E" id="StU-2y-ASV"/>
                         <outlet property="calculatorHeader" destination="3cE-Q7-6Nl" id="lqx-xa-1m3"/>
+                        <outlet property="descript" destination="XBC-yd-z6A" id="q0h-A0-Ew4"/>
                         <outlet property="fromField" destination="Gqh-AM-G7q" id="CVB-AJ-knd"/>
                         <outlet property="fromUnits" destination="l3t-W7-7RK" id="bI5-o3-bP4"/>
                         <outlet property="toField" destination="YHf-gl-luy" id="Gdf-lN-QHv"/>

@@ -18,7 +18,11 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
         self.toUnits.text = entry.toUnits
     }
     
+    let wAPI = DarkSkyWeatherService.getInstance()
  
+    @IBOutlet weak var descript: UILabel!
+    @IBOutlet weak var Temp: UILabel!
+    @IBOutlet weak var ImageIcon: UIImageView!
     fileprivate var ref : DatabaseReference?
     @IBOutlet weak var fromField: UITextField!
     @IBOutlet weak var toField: UITextField!
@@ -67,6 +71,11 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
         
     }
 
+    func clearWeatherView() {
+        self.ImageIcon.image = nil
+        self.descript.text = ""
+        self.Temp.text = ""
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -143,6 +152,19 @@ class ViewController: UIViewController, SettingsViewControllerDelegate, HistoryT
                 
             }
         }
+        let x = 0.0 //REPLACE AND ENTER X LADITUDE CORDINATE HERE
+        let y = 0.0 //REPLACE AND ENTER Y LONGITUDE CORDINATE HERE
+        wAPI.getWeatherForDate(date: Date(), forLocation: (x, y)) { (weather) in
+            if let w = weather {
+                DispatchQueue.main.async {
+                    self.Temp.text = "\(w.temperature.roundTo(places: 1))"
+                    self.ImageIcon.image = UIImage(named: w.iconName)
+                    self.descript.text = w.summary
+                    // TODO: Bind the weather object attributes to the view here
+                }
+            }
+        }
+
         self.view.endEditing(true)
     }
     
